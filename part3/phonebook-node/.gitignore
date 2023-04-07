@@ -1,0 +1,4 @@
+# env
+.env
+fly.toml
+.eslintrc.js

@@ -57,26 +57,33 @@ const App = () => {
             );
           })
           .catch((error) => {
-            // alert(`the note '${persons.name}' was already deleted from server`);
-            setFailMessage(
-              `${nameObject.name} was previously deleted, the number change was unsuccesful!`
-            );
+            setFailMessage(`The number change was unsuccesful!`);
             setTimeout(() => {
               setFailMessage(null);
             }, 3000);
-            setPersons(persons.filter((n) => n.id !== id));
+            // setPersons(persons.filter((n) => n.id !== id));
           });
       }
     } else {
-      numberService.create(nameObject).then((returnedNumber) => {
-        setPersons(persons.concat(returnedNumber));
-        setNewName('');
-        setNewNumber('');
-        setSuccessMessage(`${nameObject.name} was added to the Phonebook!`);
-        setTimeout(() => {
-          setSuccessMessage(null);
-        }, 3000);
-      });
+      numberService
+        .create(nameObject)
+        .then((returnedNumber) => {
+          setPersons(persons.concat(returnedNumber));
+          setNewName('');
+          setNewNumber('');
+          setSuccessMessage(`${nameObject.name} was added to the Phonebook!`);
+          setTimeout(() => {
+            setSuccessMessage(null);
+          }, 3000);
+        })
+        .catch((error) => {
+          // this is the way to access the error messaginste
+          console.log(error.response.data.error);
+          setFailMessage(error.response.data.error);
+          setTimeout(() => {
+            setFailMessage(null);
+          }, 3000);
+        });
     }
   };
 
