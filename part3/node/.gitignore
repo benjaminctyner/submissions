@@ -1,0 +1,7 @@
+.env
+./config
+dev.env
+node_modules
+config
+fly.toml
+.eslintrc.js
