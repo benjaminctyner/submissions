@@ -1,8 +1,10 @@
 POST http://localhost:3001/api/notes/
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJjdHluZXIiLCJpZCI6IjY0MzQ4ZjAxZWY0OGU1MzBkMDkxNjhiOCIsImlhdCI6MTY4MTE2Njk0Mn0.eTiVNB4mBgfdOLo5CeNHKiVHAO8C4aCo9m8ETfMMnEY
 
 {
-    "content": "vscode works6!!",
+    "content": "vscode works9!!",
     "important": true
+    
 }
 
